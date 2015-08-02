@@ -1,13 +1,125 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head lang="en">
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Автоинструктор Сергей!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/slick.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/slick-theme.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block body %}
+            {% block container %}
+                <div class="container" style="min-height: 100%;">
+            {% block navbar %}
+            <!-- Верхнее меню -->
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Автоинструктор Сергей</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="index.html">Главная <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">Услуги</a></li>
+                            <li><a href="blog.html">Блог</a></li>
+                            <li><a href="otzyvy.html">Отзывы</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            <!-- Конец верхнее меню -->
+            {% endblock navbar %}
+            <!-- Двухколоночная верстка -->
+            {% block two_column_template %}
+            <div class="row">
+                <!-- Левая (большая) колонка -->
+                {% block left_column %}
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <!-- Хлебные крошки -->
+                    {% block breadcrumb -%}
+                    {%- endblock breadcrumb %}
+                    <!-- Конец хлебные крошки -->
+                    <!-- Содержание -->
+                    {% block content -%}
+                    {%- endblock content%}
+                    <!-- Конец содержание -->
+                </div>
+                {% endblock left_column %}
+                <!-- Конец левая (большая) колонка -->
+                <!-- Правая (маленькая) колонка -->
+                {% block right_column %}
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h4>Звоните прямо сейчас!</h4></div>
+                        <div class="panel-body">
+                            <p style="font-size: 18pt;">+3757-29-555-55-55</p>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h4>Или закажите звонок</h4></div>
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <input type="text" class="form-control" id="inputName" placeholder="Имя">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <input type="tel" class="form-control" id="inputPhone" placeholder="Телефон">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <button type="submit" class="btn btn-primary">Заказать звонок</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endblock right_column %}
+                <!-- Конец правая (маленькая) колонка -->
+            </div>
+            {% endblock two_column_template %}
+            <!-- Конец двухколоночная верстка-->
+            <!-- Одноколоночная верстка -->
+            {% block one_column_template -%}
+            {%- endblock one_column_template  %}
+            <!-- Конец одноколоночная верстка -->
+            <div class="rasporka" style="height: 50px;"></div>
+        </div>
+            {% endblock container %}
+
+            {% block footer %}
+                <div class="container" >
+                    <div class="footer" style="clear:both; height: 50px; margin-top: -50px; background-color: rgba(25, 188, 156, 1);">
+                        <p style="margin-left: 20px;">Все права защищены</p>
+                    </div>
+                </div>
+            {% endblock footer %}
+        {% endblock  body%}
+        {% block javascripts %}
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/bootstrap.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/slick.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/vendor.initialization.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
