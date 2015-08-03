@@ -1,5 +1,89 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    Homepage.
-{% endblock %}
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+    </ul>
+{% endblock breadcrumb %}
+
+{% block content%}
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-9">
+            <h1>Автоинструктор в Минске!</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <img src="{{ asset('bundles/app/img/169_Arnolds_1.jpg') }}" alt="Фотография" title="Автоинструктор в Минске" width="150" class="img-thumbnail">
+        </div>
+        <div class="col-lg-9">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum mauris ultrices, dapibus est eu, ultricies mi. Nullam facilisis feugiat libero vel cursus. In hac habitasse platea dictumst. Donec et faucibus odio, id vehicula ex. Aliquam eu mauris sit amet ligula efficitur tempor vitae vel sem. Cras sit amet laoreet orci. Curabitur a sapien urna. Pellentesque suscipit risus eget ornare vestibulum. Nunc ultricies odio et neque lobortis porta. Pellentesque pellentesque felis at orci molestie, quis tincidunt urna pellentesque. Nullam ac leo metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed odio eros, auctor non ullamcorper ut, porta rutrum urna. Integer fringilla massa malesuada molestie rhoncus.</p>
+            <p>Suspendisse tincidunt tellus sit amet blandit vestibulum. Nam faucibus quam eget lacus dapibus, eu tempus sem tincidunt. Nullam ac ante cursus massa tristique ultrices. Sed ornare felis sed fringilla dapibus. Mauris sed ante elementum, vehicula purus et, lacinia justo. Praesent fringilla sed tellus eget imperdiet. Pellentesque lectus sapien, rutrum in congue quis, gravida vel diam.</p>
+        </div>
+    </div>
+{% endblock content%}
+
+{% block one_column_template  %}
+<!-- Карусель -->
+<div class="your-class"  style="height: 150px; margin-top: 50px; border: 2px solid rgba(24, 88, 56, 0.1);">
+    <div>
+        <div style="margin: 30px;">
+            <div class="row">
+                <div class="col-lg-2" style="font-size: 26pt; color: rgba(24, 188, 156, 0.8)">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+                <div class="col-lg-10">
+                    <h4>Индивидуальный подход</h4>
+                    <p class="hidden-xs hidden-sm">План каждого занятия составляется на основе Ваших индивидуальных особенностей.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div style="background-color: rgba(24, 188, 156, 0.3);">-->
+    <div>
+        <div style="margin: 30px;">
+            <div class="row">
+                <div class="col-lg-2" style="font-size: 26pt; color: rgba(24, 188, 156, 0.8)">
+                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                </div>
+                <div class="col-lg-10">
+                    <h4>Опыт работы</h4>
+                    <p>Более 9 лет я занимаюсь обучением вождения на автомобиле.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style="margin: 30px;">
+            <div class="row">
+                <div class="col-lg-2" style="font-size: 26pt; color: rgba(24, 188, 156, 0.8)">
+                    <span class="glyphicon glyphicon-time"></span>
+                </div>
+                <div class="col-lg-10">
+                    <h4>Гибкий график</h4>
+                    <p>Обучение проводится в любое удобное для Вас время.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style="margin: 30px;">
+            <div class="row">
+                <div class="col-lg-2" style="font-size: 26pt; color: rgba(24, 188, 156, 0.8)">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                </div>
+                <div class="col-lg-10">
+                    <h4>Любой район Минска</h4>
+                    <p>Обучение проводится в любом удобном для Вас районе столицы.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Конец карусель -->
+{% endblock one_column_template %}
