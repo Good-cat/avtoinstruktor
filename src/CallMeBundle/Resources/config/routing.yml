@@ -1,0 +1,3 @@
+call_me_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CallMeBundle:Default:index }
