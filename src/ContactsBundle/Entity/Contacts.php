@@ -1,15 +1,15 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ContactsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="contact")
+ * @ORM\Table(name="contacts")
  */
 
-class Contact {
+class Contacts {
 
     /**
      * @ORM\Column(type="integer")

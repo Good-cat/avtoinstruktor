@@ -1,3 +1,7 @@
+contacts:
+    resource: "@ContactsBundle/Resources/config/routing.yml"
+    prefix:   /
+
 call_me:
     resource: "@CallMeBundle/Resources/config/routing.yml"
     prefix:   /

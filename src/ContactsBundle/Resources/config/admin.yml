@@ -1,0 +1,11 @@
+services:
+  sonata.admin.contacts:
+          class: ContactsBundle\Admin\ContactsAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: "Настройки содержимого", label: "Контакты" }
+          arguments:
+              - ~
+              - ContactsBundle\Entity\Contacts
+              - ~
+          calls:
+              - [ setTranslationDomain, [SonataAdminBundle]]
