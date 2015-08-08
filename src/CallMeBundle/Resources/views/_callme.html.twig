@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Или закажите звонок</h4></div>
+    <div class="panel-body">
+    {{ form_start(callMeForm, {'attr': {'novalidate': 'novalidate'}}) }}
+    <div class="form-group">
+        {{ form_label(callMeForm.name) }}
+        {{ form_errors(callMeForm.name) }}
+        {{ form_widget(callMeForm.name) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(callMeForm.phone) }}
+        {{ form_errors(callMeForm.phone) }}
+        {{ form_widget(callMeForm.phone) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(callMeForm.message) }}
+        {{ form_errors(callMeForm.message) }}
+        {{ form_widget(callMeForm.message) }}
+    </div>
+
+    {{ form_widget(callMeForm) }}
+    {{ form_end(callMeForm) }}
+    </div>
+</div>

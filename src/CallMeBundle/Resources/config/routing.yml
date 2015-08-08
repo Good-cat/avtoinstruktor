@@ -1,0 +1,3 @@
+callme:
+    path:     /callme
+    defaults: { _controller: CallMeBundle:CallMe:callMe}
