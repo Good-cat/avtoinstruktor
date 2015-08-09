@@ -1,3 +1,7 @@
+slider:
+    resource: "@SliderBundle/Resources/config/routing.yml"
+    prefix:   /
+
 contacts:
     resource: "@ContactsBundle/Resources/config/routing.yml"
     prefix:   /
@@ -9,6 +13,9 @@ call_me:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
 
 # FOSUserBundle's routing
 #fos_user_security:

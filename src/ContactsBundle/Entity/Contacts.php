@@ -19,27 +19,27 @@ class Contacts {
     protected $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $phones;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $email;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $skype;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $address;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $information;
 
@@ -166,5 +166,10 @@ class Contacts {
     public function getInformation()
     {
         return $this->information;
+    }
+
+    public function __toString()
+    {
+        return "Контакты";
     }
 }

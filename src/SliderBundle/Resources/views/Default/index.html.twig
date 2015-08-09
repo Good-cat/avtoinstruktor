@@ -1,0 +1,13 @@
+<!-- Карусель -->
+<div class="your-class"  style="height: 150px; margin-top: 50px; border: 2px solid rgba(24, 88, 56, 0.1);">
+    {% for item in items %}
+        <div>
+            <div style="margin: 30px;">
+                <div class="row">
+                    {{ item.item|raw }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<!-- Конец карусель -->

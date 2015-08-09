@@ -3,3 +3,33 @@ html, body {
     margin: 0;
     height: 100%;
 }
+
+.rasporka {
+    height: 70px;
+}
+
+.footer {
+    clear:both;
+    height: 70px;
+    margin-top: -70px;
+    background-color: rgba(25, 188, 156, 1);
+    padding-top: 10px;
+}
+
+.footer-title {
+    margin-left: 20px;
+}
+
+.footer-menu {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.footer a {
+    color: #163758;
+}
+
+.rights {
+    margin-left: 20px;
+    margin-top: 20px;
+}

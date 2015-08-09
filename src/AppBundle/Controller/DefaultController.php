@@ -12,6 +12,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        $repository = $this->getDoctrine()->getRepository('AppBundle:MainPage');
+        $mainpage = $repository->find('1');
+
+        return $this->render('default/index.html.twig', array('mainpage' => $mainpage));
     }
 }

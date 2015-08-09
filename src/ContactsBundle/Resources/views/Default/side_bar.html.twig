@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="{{ asset('bundles/contacts/css/contacts.css') }}">
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Контакты</h4></div>
+    <div class="panel-body">
+        {% if(contacts.phones) %}
+            <p class="contact_title">Телефоны:</p>
+            <p class="contact_content">{{ contacts.phones|raw }}</p>
+        {% endif %}
+        {% if(contacts.email) %}
+            <p class="contact_title">Email:</p>
+            <p class="contact_content">{{ contacts.email|replace({'@': '<span class="doggy">[собачка]</span>'})|raw }}</p>
+        {% endif %}
+        {% if(contacts.skype) %}
+            <p class="contact_title">Skype:</p>
+            <p class="contact_content">{{ contacts.skype|raw }}</p>
+        {% endif %}
+
+    </div>
+</div>

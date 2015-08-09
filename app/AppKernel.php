@@ -29,6 +29,9 @@ class AppKernel extends Kernel
             new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
             new CallMeBundle\CallMeBundle(),
             new ContactsBundle\ContactsBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new FM\ElfinderBundle\FMElfinderBundle(),
+            new SliderBundle\SliderBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
