@@ -24,12 +24,12 @@ class Service {
     private $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $annotation;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
@@ -37,8 +37,6 @@ class Service {
      * @ORM\Column(type="boolean")
      */
     private $visible;
-
-//    private $articles;
 
     /**
      * @ORM\Column(type="datetime")
@@ -182,7 +180,7 @@ class Service {
      * @param string $slug
      * @return Service
      */
-    public function setSlug($slug)
+    public function setSlug()
     {
         $this->slug = Slugify::slug($this->name);
 
@@ -197,5 +195,10 @@ class Service {
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

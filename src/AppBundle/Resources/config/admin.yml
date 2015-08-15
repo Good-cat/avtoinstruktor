@@ -9,3 +9,14 @@ services:
               - ~
           calls:
               - [ setTranslationDomain, [SonataAdminBundle]]
+
+  sonata.admin.service:
+          class: AppBundle\Admin\ServiceAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: "Настройки содержимого", label: "Услуги" }
+          arguments:
+              - ~
+              - AppBundle\Entity\Service
+              - ~
+          calls:
+              - [ setTranslationDomain, [SonataAdminBundle]]

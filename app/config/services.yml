@@ -10,3 +10,6 @@ services:
   callme_swiftmailer:
     class: CallMeBundle\Utils\CallMeSwiftMailer
     arguments: ['@mailer', %send_from%, %send_to%]
+
+  pagination:
+    class: AppBundle\Utils\Pagination
