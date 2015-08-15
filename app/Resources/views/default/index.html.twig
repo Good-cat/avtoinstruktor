@@ -18,7 +18,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-3 hidden-sm hidden-xs">
             <img src="{{ asset(app.request.basePath~'/'~mainpage.getWebPath) }}" alt="Автоинструктор в Минске" title="Автоинструктор в Минске" width="150" class="img-thumbnail">
         </div>
         <div class="col-lg-9">
@@ -28,5 +28,7 @@
 {% endblock content%}
 
 {% block one_column_template  %}
-    {{ render(controller('SliderBundle:Default:index')) }}
+    <div class="hidden-sm hidden-xs">
+        {{ render(controller('SliderBundle:Default:index')) }}
+    </div>
 {% endblock one_column_template %}
