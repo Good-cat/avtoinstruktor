@@ -6,6 +6,7 @@ imports:
     - { resource: @ContactsBundle/Resources/config/admin.yml }
     - { resource: @AppBundle/Resources/config/admin.yml }
     - { resource: @SliderBundle/Resources/config/admin.yml }
+    - { resource: @ApplicationSonataUserBundle/Resources/config/admin_orm.xml }
 
 framework:
     #esi:             ~
@@ -81,6 +82,7 @@ swiftmailer:
 
 sonata_admin:
     title:  "Автоинструктор в Минске"
+    dashboard: ~
     templates:
         layout:                         ApplicationSonataAdminBundle::standard_layout.html.twig
 
@@ -91,6 +93,7 @@ sonata_block:
     # Enable the SonataAdminBundle block
     sonata.admin.block.admin_list:
       contexts:  [admin]
+    sonata.admin.block.search_result:
     sonata.user.block.menu:  # used to display the menu in profile pages
     sonata.user.block.account: # used to display menu option (login option)
     sonata.block.service.text: # used to if you plan to use Sonata user routes
@@ -101,6 +104,8 @@ sonata_user:
   manager_type: orm # can be orm or mongodb
   admin:
     user:
+      translation:  SonataUserBundle
+    group:
       translation:  SonataUserBundle
 
 
