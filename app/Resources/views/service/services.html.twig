@@ -10,6 +10,6 @@
     <h1>{{ block('title') }}</h1>
     {% for service in services %}
         <h2>{{ service.name }}</h2>
-        {{ service.description }}
+        {{ service.description|raw }}
     {% endfor %}
 {% endblock content %}

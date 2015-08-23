@@ -443,6 +443,10 @@
                 <source>sonata_user</source>
                 <target>Пользователи</target>
             </trans-unit>
+            <trans-unit id="Slider List">
+                <source>Slider List</source>
+                <target>Список компонентов слайдера</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

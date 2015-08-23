@@ -6,6 +6,7 @@ imports:
     - { resource: @ContactsBundle/Resources/config/admin.yml }
     - { resource: @AppBundle/Resources/config/admin.yml }
     - { resource: @SliderBundle/Resources/config/admin.yml }
+    - { resource: @BlogBundle/Resources/config/admin.yml }
     - { resource: @ApplicationSonataUserBundle/Resources/config/admin_orm.xml }
 
 framework:

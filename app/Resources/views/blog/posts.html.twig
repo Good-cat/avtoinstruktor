@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="{{ path(menu['Главная']) }}">Главная</a></li>
+        <li>Блог автоинструктора</li>
+    </ul>
+{% endblock breadcrumb %}
+{% block title %}Блог автоинструктора{% endblock title %}
+{% block content%}
+    <h1>{{ block('title') }}</h1>
+    {% for post in posts %}
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <h2 class="post_title">{{ post.title }}</h2>
+                <div class="post_text">{{ post.text|raw }}</div>
+            </div>
+            <div class="panel-footer">{{ post.updateAt|date('d.m.Y') }}</div>
+        </div>
+    {% endfor %}
+{% endblock content %}
