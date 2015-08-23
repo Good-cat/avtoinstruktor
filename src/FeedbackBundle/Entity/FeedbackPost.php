@@ -6,17 +6,17 @@
  * Time: 11:14
  */
 
-namespace BlogBundle\Entity;
+namespace FeedbackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Utils\Slugify;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="post")
+ * @ORM\Table(name="feedback_post")
  */
 
-class Post {
+class FeedbackPost {
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -24,12 +24,10 @@ class Post {
      */
     protected $id;
 
-    protected $author;
-
     /**
      * @ORM\Column(type="string")
      */
-    protected $title;
+    protected $author;
 
     /**
      * @ORM\Column(type="text")
@@ -67,7 +65,7 @@ class Post {
      * @param string $title
      * @return Post
      */
-    public function setTitle($title)
+    public function setTeitl($title)
     {
         $this->title = $title;
 
@@ -161,7 +159,7 @@ class Post {
      */
     public function setSlug()
     {
-        $this->slug = Slugify::slug($this->title);
+        $this->slug = Slugify::slug($this->author);
 
         return $this;
     }
@@ -178,6 +176,29 @@ class Post {
 
     public function __toString()
     {
-        return $this->title;
+        return $this->author;
+    }
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     * @return FeedbackPost
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

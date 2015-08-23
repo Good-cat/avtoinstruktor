@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Оставьте свой отзыв</h4></div>
+    <div class="panel-body">
+        {{ form_start(feedbackForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div class="form-group">
+            {{ form_label(feedbackForm.name) }}
+            {{ form_errors(feedbackForm.name) }}
+            {{ form_widget(feedbackForm.name) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(feedbackForm.message) }}
+            {{ form_errors(feedbackForm.message) }}
+            {{ form_widget(feedbackForm.message) }}
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    {{ form_widget(feedbackForm.norobot) }}
+                    {{ form_label(feedbackForm.norobot) }}
+                    {{ form_errors(feedbackForm.norobot) }}
+                </label>
+            </div>
+        </div>
+        {{ form_widget(feedbackForm) }}
+        {{ form_end(feedbackForm) }}
+    </div>
+</div>
+
+<script>{{ include('@Feedback/_feedback.js.twig', {'success': success}) }}</script>

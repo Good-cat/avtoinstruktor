@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new FM\ElfinderBundle\FMElfinderBundle(),
             new SliderBundle\SliderBundle(),
             new BlogBundle\BlogBundle(),
+            new FeedbackBundle\FeedbackBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
