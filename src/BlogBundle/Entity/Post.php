@@ -17,6 +17,9 @@ use AppBundle\Utils\Slugify;
  */
 
 class Post {
+
+    const POSTS_PER_PAGE = 10;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id

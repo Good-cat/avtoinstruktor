@@ -7,14 +7,39 @@
 {% endblock breadcrumb %}
 {% block title %}Блог автоинструктора{% endblock title %}
 {% block content%}
-    <h1>{{ block('title') }}</h1>
-    {% for post in posts %}
-        <div class="panel panel-success">
-            <div class="panel-body">
-                <h2 class="post_title">{{ post.title }}</h2>
-                <div class="post_text">{{ post.text|raw }}</div>
-            </div>
-            <div class="panel-footer">{{ post.updateAt|date('d.m.Y') }}</div>
+    <div class="row">
+        <div class="col-lg-3">
         </div>
-    {% endfor %}
+        <div class="col-lg-9">
+            <h1>{{ block('title') }}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 hidden-sm hidden-xs">
+            <img src="{{ asset(app.request.basePath~'/'~mainpage.getWebPath) }}" alt="Автоинструктор в Минске" title="Автоинструктор в Минске" width="150" class="img-thumbnail">
+        </div>
+        <div class="col-lg-9">
+            {% for post in posts %}
+                <div class="panel panel-success">
+                    <div class="panel-body">
+                        <h2 class="post_title">{{ post.title }}</h2>
+                        <div class="post_text">{{ post.text|raw }}</div>
+                    </div>
+                    <div class="panel-footer">{{ post.updateAt|date('d.m.Y') }}</div>
+                </div>
+            {% endfor %}
+            {% if pagesCount > 1 %}
+                <div>
+                    <ul class="pagination pagination-sm" >
+                        <li class="{% if page == 1 %}disabled{% endif %}"><a href="{{ path('posts', {'page': 1}) }}">&laquo;</a></li>
+                        {% for currentPage in 1..pagesCount %}
+                            <li class="{% if page == currentPage %}active{% endif %}"><a href="{{ path('posts', { 'page': currentPage}) }}">{{ currentPage }}</a></li>
+                        {% endfor %}
+                        <li class="{% if page == pagesCount %}disabled{% endif %}"><a href="{{ path('posts', { 'page': pagesCount}) }}">&raquo;</a></li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
 {% endblock content %}

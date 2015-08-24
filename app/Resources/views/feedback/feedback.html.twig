@@ -16,5 +16,20 @@
             <div class="panel-footer">{{ feedbackPost.updateAt|date('d.m.Y') }} {{ feedbackPost.author }}</div>
         </div>
     {% endfor %}
+
+    {% if pagesCount > 1 %}
+        <div>
+            <ul class="pagination pagination-sm" >
+                <li class="{% if page == 1 %}disabled{% endif %}"><a href="{{ path('feedback', {'page': 1}) }}">&laquo;</a></li>
+                {% for currentPage in 1..pagesCount %}
+                    <li class="{% if page == currentPage %}active{% endif %}"><a href="{{ path('feedback', { 'page': currentPage}) }}">{{ currentPage }}</a></li>
+                {% endfor %}
+                <li class="{% if page == pagesCount %}disabled{% endif %}"><a href="{{ path('feedback', { 'page': pagesCount}) }}">&raquo;</a></li>
+            </ul>
+        </div>
+    {% endif %}
+
+    <hr/>
+
     {% render(controller('FeedbackBundle:Feedback:getFeedbackForm')) %}
 {% endblock content %}

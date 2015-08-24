@@ -10,17 +10,34 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\Common\Collections\ArrayCollection;
+use BlogBundle\Entity\Post;
 
 class BlogController extends Controller{
 
     /**
-     * @Route("/блог_автоинструктора", name="posts")
+     * @Route("/блог_автоинструктора/{page}", name="posts", defaults={"page" = 1}, requirements={
+     *     "page": "\d+"
+     * })
      */
-    public function postsListAction()
+    public function postsListAction($page)
     {
         $repository = $this->getDoctrine()->getRepository('BlogBundle:Post');
-        $posts = $repository->findBy(array('visible' => 1));
+        $posts = new ArrayCollection($repository->findBy(
+            array('visible' => 1),
+            array('update_at' => 'DESC')
+        ));
 
-        return $this->render('blog/posts.html.twig', array('posts' => $posts));
+        $pagination = $this->get('pagination')->setCollection($posts)->setItemsPerPage(Post::POSTS_PER_PAGE);
+        $list = $pagination->getItems($page);
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:MainPage');
+        $mainpage = $repository->find('1');
+
+        return $this->render('blog/posts.html.twig', array(
+            'posts' => $list,
+            'mainpage' => $mainpage,
+            'page' => $page,
+            'pagesCount' => $pagination->getPagesCount()));
     }
 }

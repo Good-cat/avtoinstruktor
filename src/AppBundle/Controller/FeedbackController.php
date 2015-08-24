@@ -10,15 +10,26 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FeedbackBundle\Entity\FeedbackPost;
+use Doctrine\Common\Collections\ArrayCollection as Collection;
 
 class FeedbackController extends Controller{
     /**
-     * @Route("/отзывы_автоинструктор", name="feedback")
+     * @Route("/отзывы_автоинструктор/{page}", name="feedback", defaults={"page" = 1}, requirements={
+     *     "page": "\d+"
+     * })
      */
-    public function feedbackListAction()
+    public function feedbackListAction($page)
     {
         $repository = $this->getDoctrine()->getRepository('FeedbackBundle:FeedbackPost');
-        $feedbackPosts = $repository->findBy(array('visible' => 1));
-        return $this->render('feedback/feedback.html.twig', array('feedbackPosts' => $feedbackPosts));
+        $feedbackPosts = new Collection($repository->findBy(array('visible' => 1), array('update_at' => 'DESC')));
+
+        $pagination = $this->get('pagination')->setCollection($feedbackPosts)->setItemsPerPage(FeedbackPost::FEEDBACK_POSTS_PER_PAGE);
+        $list = $pagination->getItems($page);
+        return $this->render('feedback/feedback.html.twig', array(
+            'feedbackPosts' => $list,
+            'page' => $page,
+            'pagesCount' => $pagination->getPagesCount()
+        ));
     }
 }

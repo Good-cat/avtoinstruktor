@@ -43,7 +43,7 @@ class FeedbackController extends Controller{
                     $message = $feedbackForm->get('message')->getData();
                     $feedbackPost = new FeedbackPost();
                     $feedbackPost->setAuthor($name);
-                    $feedbackPost->setText($message);
+                    $feedbackPost->setText(strip_tags($message));
                     $feedbackPost->setUpdateAt(new \DateTime());
                     $feedbackPost->setSlug();
                     $feedbackPost->setVisible(false);

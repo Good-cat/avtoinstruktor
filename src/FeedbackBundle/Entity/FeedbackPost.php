@@ -17,6 +17,8 @@ use AppBundle\Utils\Slugify;
  */
 
 class FeedbackPost {
+    const FEEDBACK_POSTS_PER_PAGE = 10;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id

@@ -49,5 +49,8 @@ security:
         # and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
         - { path: ^/admin/sonata, role: [ROLE_ADMIN] }
+        - { path: ^/admin/contacts, role: [ROLE_ADMIN] }
+        - { path: ^/admin/slider, role: [ROLE_ADMIN] }
+        - { path: ^/admin/app, role: [ROLE_ADMIN] }
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_REDACTOR] }
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
