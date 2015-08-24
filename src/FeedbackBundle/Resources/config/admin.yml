@@ -1,0 +1,11 @@
+services:
+  sonata.admin.feedback_post:
+          class: FeedbackBundle\Admin\FeedbackPostAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: "Отзывы", label: "Отзывы" }
+          arguments:
+              - ~
+              - FeedbackBundle\Entity\FeedbackPost
+              - ~
+          calls:
+              - [ setTranslationDomain, [SonataAdminBundle]]

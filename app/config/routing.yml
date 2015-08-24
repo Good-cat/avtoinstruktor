@@ -1,3 +1,11 @@
+feedback:
+    resource: "@FeedbackBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
 slider:
     resource: "@SliderBundle/Resources/config/routing.yml"
     prefix:   /

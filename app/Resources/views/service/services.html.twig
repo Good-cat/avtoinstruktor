@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="{{ path(menu['Главная']) }}">Главная</a></li>
+        <li>Услуги</li>
+    </ul>
+{% endblock breadcrumb %}
+{% block title %}Услуги автоинструктора{% endblock title %}
+{% block content%}
+    <h1>{{ block('title') }}</h1>
+    {% for service in services %}
+        <h2>{{ service.name }}</h2>
+        {{ service.description|raw }}
+    {% endfor %}
+{% endblock content %}

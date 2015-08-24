@@ -1,0 +1,20 @@
+$(document).ready(function(){
+        $('body').on('submit', 'form[name=feedback_form]', function(){
+            $.ajax({
+                type: "POST",
+                url: "{{ path('send_feedback') }}",
+                data: $(this).serialize(),
+                success: function(data) {
+                    alert(data);
+                    if (data == "{{ success }}") {
+                        window.location = window.location;
+                    }
+                },
+                error:  function(xhr, str){
+                    alert("Возникла ошибка!");
+                }
+            });
+        });
+    }
+);
+

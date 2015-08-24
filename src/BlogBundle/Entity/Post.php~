@@ -1,0 +1,54 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: misha
+ * Date: 22.08.15
+ * Time: 11:14
+ */
+
+namespace BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="post")
+ */
+
+class Post {
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    protected $author;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $text;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $visible;
+
+//    private $articles;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $update_at;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $slug;
+}

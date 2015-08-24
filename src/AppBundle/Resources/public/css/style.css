@@ -33,3 +33,9 @@ html, body {
     margin-left: 20px;
     margin-top: 20px;
 }
+
+/*blog*/
+
+.post_title {
+    margin-top: 0px;
+}

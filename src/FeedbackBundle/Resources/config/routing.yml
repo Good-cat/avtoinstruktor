@@ -1,0 +1,3 @@
+send_feedback:
+    path:     /feedback
+    defaults: { _controller: FeedbackBundle:Feedback:sendFeedback }
