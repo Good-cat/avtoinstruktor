@@ -9,3 +9,14 @@ services:
               - ~
           calls:
               - [ setTranslationDomain, [SonataAdminBundle]]
+
+  sonata.admin.feedback_comment:
+          class: FeedbackBundle\Admin\FeedbackCommentAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: "Отзывы", label: "Комментарии" }
+          arguments:
+              - ~
+              - FeedbackBundle\Entity\FeedbackComment
+              - ~
+          calls:
+              - [ setTranslationDomain, [SonataAdminBundle]]

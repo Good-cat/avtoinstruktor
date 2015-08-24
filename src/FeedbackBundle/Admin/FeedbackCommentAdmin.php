@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: misha
- * Date: 23.08.15
- * Time: 19:25
+ * Date: 24.08.15
+ * Time: 22:26
  */
 
 namespace FeedbackBundle\Admin;
@@ -17,8 +17,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class FeedbackPostAdmin extends Admin{
-    // Fields to be shown on create/edit forms
+class FeedbackCommentAdmin extends Admin{
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -26,7 +26,6 @@ class FeedbackPostAdmin extends Admin{
             ->with('Запись блога')
             ->add('author', null, array('label' => 'Автор', 'attr'=>array('class' => '')))
             ->add('text', null, array('label' => 'Содержание', 'attr'=>array('class' => 'tinymce')))
-            ->add('feedback_comments', 'sonata_type_collection', array('label' => 'Комментарии', 'required' => false, 'by_reference' => false), array('edit' => 'inline', 'inline' => 'table'))
             ->add('visible', null, array('label' => 'Отображать', 'attr'=>array('class' => '')))
             ->end()
             ->end()
@@ -49,13 +48,13 @@ class FeedbackPostAdmin extends Admin{
         ;
     }
 
-    public function prePersist($feedback_post)
+    public function prePersist($feedback_comment)
     {
-        $feedback_post->setUpdateAt(new \DateTime());
+        $feedback_comment->setUpdateAt(new \DateTime());
     }
 
-    public function preUpdate($feedback_post)
+    public function preUpdate($feedback_comment)
     {
-        $feedback_post->setUpdateAt(new \DateTime());
+        $feedback_comment->setUpdateAt(new \DateTime());
     }
 }

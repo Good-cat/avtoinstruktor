@@ -10,6 +10,8 @@ namespace FeedbackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Utils\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use FeedbackBundle\Entity\FeedbackComment;
 
 /**
  * @ORM\Entity
@@ -42,7 +44,7 @@ class FeedbackPost {
     private $visible;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_at;
 
@@ -50,6 +52,16 @@ class FeedbackPost {
      * @ORM\Column(type="string")
      */
     private $slug;
+
+    /**
+     * @ORM\OneToMany(targetEntity="FeedbackComment", mappedBy="feedback_post", orphanRemoval=true, cascade={"persist"})
+     */
+    private $feedback_comments;
+
+    public function __construct()
+    {
+        $this->feedback_comments = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -202,5 +214,39 @@ class FeedbackPost {
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Add feedback_comments
+     *
+     * @param \FeedbackBundle\Entity\FeedbackComment $feedbackComments
+     * @return FeedbackPost
+     */
+    public function addFeedbackComment(FeedbackComment $feedbackComment)
+    {
+        $feedbackComment->setFeedbackPost($this);
+        $this->feedback_comments[] = $feedbackComment;
+
+        return $this;
+    }
+
+    /**
+     * Remove feedback_comments
+     *
+     * @param \FeedbackBundle\Entity\FeedbackComment $feedbackComments
+     */
+    public function removeFeedbackComment(FeedbackComment $feedbackComments)
+    {
+        $this->feedback_comments->removeElement($feedbackComments);
+    }
+
+    /**
+     * Get feedback_comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeedbackComments()
+    {
+        return $this->feedback_comments;
     }
 }
