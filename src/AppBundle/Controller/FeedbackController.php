@@ -26,6 +26,7 @@ class FeedbackController extends Controller{
 
         $pagination = $this->get('pagination')->setCollection($feedbackPosts)->setItemsPerPage(FeedbackPost::FEEDBACK_POSTS_PER_PAGE);
         $list = $pagination->getItems($page);
+
         return $this->render('feedback/feedback.html.twig', array(
             'feedbackPosts' => $list,
             'page' => $page,

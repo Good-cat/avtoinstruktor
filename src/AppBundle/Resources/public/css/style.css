@@ -39,3 +39,11 @@ html, body {
 .post_title {
     margin-top: 0px;
 }
+
+/*feedback*/
+
+.feedback-comment {
+    margin-top: 10px;
+    color: rgba(24, 188, 156, 0.8);
+    text-align: right;
+}

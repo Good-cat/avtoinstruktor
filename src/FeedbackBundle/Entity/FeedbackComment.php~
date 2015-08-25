@@ -13,6 +13,7 @@ use FeedbackBundle\Entity\FeedbackPost;
 
 /**
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="feedback_comment")
  */
 class FeedbackComment {
@@ -24,7 +25,7 @@ class FeedbackComment {
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $author;
 
@@ -150,6 +151,16 @@ class FeedbackComment {
     {
         return $this->update_at;
     }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdateAtValue()
+    {
+        $this->update_at = new \DateTime();
+    }
+
 
     /**
      * Set feedback_post

@@ -23,12 +23,14 @@ class FeedbackPostAdmin extends Admin{
     {
         $formMapper
             ->tab('Запись блога')
-            ->with('Запись блога')
-            ->add('author', null, array('label' => 'Автор', 'attr'=>array('class' => '')))
-            ->add('text', null, array('label' => 'Содержание', 'attr'=>array('class' => 'tinymce')))
-            ->add('feedback_comments', 'sonata_type_collection', array('label' => 'Комментарии', 'required' => false, 'by_reference' => false), array('edit' => 'inline', 'inline' => 'table'))
-            ->add('visible', null, array('label' => 'Отображать', 'attr'=>array('class' => '')))
-            ->end()
+                ->with('Запись блога')
+                    ->add('author', null, array('label' => 'Автор', 'attr'=>array('class' => '')))
+                    ->add('text', null, array('label' => 'Содержание', 'attr'=>array('class' => 'tinymce')))
+                    ->add('visible', null, array('label' => 'Отображать', 'attr'=>array('class' => '')))
+                ->end()
+                ->with('Комментарии')
+                    ->add('feedback_comments', 'sonata_type_collection', array('label' => 'Комментарии', 'required' => false, 'by_reference' => false), array('edit' => 'inline', 'inline' => 'table'))
+                ->end()
             ->end()
         ;
     }
@@ -42,7 +44,8 @@ class FeedbackPostAdmin extends Admin{
             ->add('visible', null , array('label' => 'Отображать', 'editable' => true))
             ->add('_action', 'action', array(
                 'actions' => array(
-                    'edit' => array()
+                    'edit' => array(),
+                    'delete' => array()
                 ),
                 'label' => 'Действия'
             ))

@@ -22,12 +22,12 @@ class FeedbackCommentAdmin extends Admin{
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->tab('Запись блога')
-            ->with('Запись блога')
-            ->add('author', null, array('label' => 'Автор', 'attr'=>array('class' => '')))
-            ->add('text', null, array('label' => 'Содержание', 'attr'=>array('class' => 'tinymce')))
-            ->add('visible', null, array('label' => 'Отображать', 'attr'=>array('class' => '')))
-            ->end()
+            ->tab('Комментарии')
+                ->with('Комментарий')
+                    ->add('text', null, array('label' => 'Содержание', 'attr'=>array('class' => '', 'rows' => 2, 'style' => 'width: 100%;')))
+                    ->add('visible', null, array('label' => 'Отображать', 'attr'=>array('class' => '')))
+                    ->add('update_at', 'sonata_type_date_picker', array('label' => 'Дата обновления'))
+                ->end()
             ->end()
         ;
     }
@@ -36,12 +36,12 @@ class FeedbackCommentAdmin extends Admin{
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('author', 'html', array('label' => 'Автор'))
-            ->add('text', null, array('label' => 'Содержание'))
+            ->add('text', null, array('label' => 'Содержание', 'attr'=>array()))
             ->add('visible', null , array('label' => 'Отображать', 'editable' => true))
             ->add('_action', 'action', array(
                 'actions' => array(
-                    'edit' => array()
+                    'edit' => array(),
+                    'delete' => array()
                 ),
                 'label' => 'Действия'
             ))
