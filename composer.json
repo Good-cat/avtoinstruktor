@@ -27,6 +27,7 @@
         "sonata-project/easy-extends-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/datagrid-bundle": "dev-master",
+        "sonata-project/seo-bundle": "dev-master",
 
         "stfalcon/tinymce-bundle": "dev-master",
         "helios-ag/fm-elfinder-bundle": "~5"

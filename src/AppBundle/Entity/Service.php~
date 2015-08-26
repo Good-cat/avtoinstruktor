@@ -1,0 +1,53 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Utils\Slugify;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="service")
+ */
+class Service {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $annotation;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $visible;
+
+//    private $articles;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $update_at;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $slug;
+
+} 

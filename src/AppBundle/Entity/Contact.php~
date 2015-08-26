@@ -1,0 +1,45 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="contact")
+ */
+
+class Contact {
+
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $phones;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $skype;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $address;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $information;
+} 

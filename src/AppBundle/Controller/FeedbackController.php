@@ -27,6 +27,11 @@ class FeedbackController extends Controller{
         $pagination = $this->get('pagination')->setCollection($feedbackPosts)->setItemsPerPage(FeedbackPost::FEEDBACK_POSTS_PER_PAGE);
         $list = $pagination->getItems($page);
 
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->addMeta('name', 'keywords', 'автоинструктор обучение вождению экзамен гаи минск отзывы')
+            ->addMeta('name', 'description', 'автоинструктор в минске отзывы');
+
         return $this->render('feedback/feedback.html.twig', array(
             'feedbackPosts' => $list,
             'page' => $page,

@@ -56,9 +56,4 @@ class FeedbackPostAdmin extends Admin{
     {
         $feedback_post->setUpdateAt(new \DateTime());
     }
-
-    public function preUpdate($feedback_post)
-    {
-        $feedback_post->setUpdateAt(new \DateTime());
-    }
 }

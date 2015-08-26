@@ -20,6 +20,11 @@ class ServiceController extends Controller{
         $repository = $this->getDoctrine()->getRepository('AppBundle:Service');
         $services = $repository->findBy(array('visible' => 1));
 
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->addMeta('name', 'keywords', 'автоинструктор обучение вождению экзамен гаи минск услуги цены стоимость')
+            ->addMeta('name', 'description', 'услуги автоинструктора в минске');
+
         return $this->render('service/services.html.twig', array('services' => $services));
     }
 }

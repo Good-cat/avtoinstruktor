@@ -34,6 +34,11 @@ class BlogController extends Controller{
         $repository = $this->getDoctrine()->getRepository('AppBundle:MainPage');
         $mainpage = $repository->find('1');
 
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->addMeta('name', 'keywords', 'автоинструктор обучение вождению экзамен гаи минск блог')
+            ->addMeta('name', 'description', 'блог автоинструктора в минске');
+
         return $this->render('blog/posts.html.twig', array(
             'posts' => $list,
             'mainpage' => $mainpage,

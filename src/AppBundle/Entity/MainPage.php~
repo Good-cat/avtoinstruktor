@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @ORM\Table(name="mainpage")
  */
 class MainPage {
-    const SERVER_PATH_TO_IMAGE_FOLDER = '/../../../../web/images/mainpage';
+    const SERVER_PATH_TO_IMAGE_FOLDER = 'images/mainpage';
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -45,6 +45,9 @@ class MainPage {
      */
     protected $updated;
 
+    /*
+     * это поле не под доктриной
+     */
     protected $file;
 
 
@@ -152,29 +155,63 @@ class MainPage {
         return 'Главная страница';
     }
 
+    public function getAbsolutePath()
+    {
+        return null === $this->imageName
+            ? null
+            : $this->getUploadRootDir().'/'.$this->imageName;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->imageName
+            ? null
+            : $this->getUploadDir().'/'.$this->imageName;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return self::SERVER_PATH_TO_IMAGE_FOLDER;
+    }
+
     /**
-     * Manages the copying of the file to the relevant place on the server
+     * Управление скачиванием файла на сервер и записью в базу пути к файлу
+     * (главное, не забыть указать правильные права на папку, в которую записывается
+     * файл)
+     * http://symfony.com/doc/current/cookbook/doctrine/file_uploads.html
      */
     public function upload()
     {
-        // the file property can be empty if the field is not required
+        // поле файл не required, поэтому проверяем, не пустое ли оно
         if (null === $this->getFile()) {
             return;
         }
 
-        // we use the original file name here but you should
-        // sanitize it at least to avoid any security issues
+        /*
+         * пока используем имя файла с жесткого диска (т.е. такое, какое загружает
+         * пользователь, поскольку загружает его админ. вообще можно валидировать
+         * и изменять его по своему усмотрению
+         */
 
         // move takes the target directory and target filename as params
         $this->getFile()->move(
-            __DIR__.self::SERVER_PATH_TO_IMAGE_FOLDER,
+            $this->getUploadRootDir(),
             $this->getFile()->getClientOriginalName()
         );
 
-        // set the path property to the filename where you've saved the file
+        // сохраняем имя файла в наше поле
         $this->setImageName($this->getFile()->getClientOriginalName());
 
-        // clean up the file property as you won't need it anymore
+        // очищаем свойство file
         $this->setFile(null);
     }
 
@@ -184,5 +221,32 @@ class MainPage {
      */
     public function lifecycleFileUpload() {
         $this->upload();
+    }
+
+    public function refreshUpdated() {
+        $this->setUpdated(new \DateTime("now"));
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return MainPage
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }
