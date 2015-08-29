@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
- * @ORM\Table(name="mainpage")
+ * @ORM\Table(name="mainpage", options={"collate"="utf8_general_ci", "charset"="utf8", "engine"="MyISAM"})
  */
 class MainPage {
     const SERVER_PATH_TO_IMAGE_FOLDER = 'images/mainpage';

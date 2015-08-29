@@ -7,7 +7,7 @@ use AppBundle\Utils\Slugify;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="service")
+ * @ORM\Table(name="service", options={"collate"="utf8_general_ci", "charset"="utf8", "engine"="MyISAM"})
  */
 class Service {
 
