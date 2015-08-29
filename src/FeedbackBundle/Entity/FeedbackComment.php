@@ -14,7 +14,7 @@ use FeedbackBundle\Entity\FeedbackPost;
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
- * @ORM\Table(name="feedback_comment", options={"collate"="utf8_general_ci", "charset"="utf8", "engine"="MyISAM"})
+ * @ORM\Table(name="feedback_comment")
  */
 class FeedbackComment {
     /**

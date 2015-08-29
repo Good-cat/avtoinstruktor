@@ -13,7 +13,7 @@ use AppBundle\Utils\Slugify;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="post", options={"collate"="utf8_general_ci", "charset"="utf8", "engine"="MyISAM"})
+ * @ORM\Table(name="post")
  */
 
 class Post {

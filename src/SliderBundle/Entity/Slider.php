@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="slider", options={"collate"="utf8_general_ci", "charset"="utf8", "engine"="MyISAM"})
+ * @ORM\Table(name="slider")
  */
 class Slider {
     /**
