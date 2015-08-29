@@ -4,25 +4,52 @@ html, body {
     height: 100%;
 }
 
-.rasporka {
-    height: 70px;
+@media screen and (max-width: 1920px) {
+    .footer-menu {
+        text-align: right;
+        margin-right: 20px;
+        margin-bottom: 60px;
+    }
+
+    .rasporka {
+        height: 70px;
+    }
+
+    .footer {
+        clear:both;
+        height: 70px;
+        margin-top: -70px;
+        background-color: rgba(25, 188, 156, 1);
+        padding-top: 10px;
+    }
+
+    .footer-title {
+        margin-left: 20px;
+    }
 }
 
-.footer {
-    clear:both;
-    height: 70px;
-    margin-top: -70px;
-    background-color: rgba(25, 188, 156, 1);
-    padding-top: 10px;
-}
+@media screen and (max-width: 768px) {
+    .footer-menu {
+        text-align: center;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
 
-.footer-title {
-    margin-left: 20px;
-}
+    .rasporka {
+        height: 90px;
+    }
 
-.footer-menu {
-    text-align: right;
-    margin-right: 20px;
+    .footer {
+        clear:both;
+        height: 90px;
+        margin-top: -90px;
+        background-color: rgba(25, 188, 156, 1);
+        padding-top: 10px;
+    }
+
+    .footer-title {
+        margin-left: 20px;
+    }
 }
 
 .footer a {
