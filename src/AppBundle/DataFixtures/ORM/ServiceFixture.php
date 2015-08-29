@@ -22,6 +22,9 @@ class ServiceFixture implements  FixtureInterface {
         $service->setName('Услуга по умолчанию');
         $service->setAnnotation('Краткое описание услуги');
         $service->setDescription('Подробное описание услуги');
+        $service->setVisible(true);
+        $service->setSlug();
+        $service->setUpdateAt(new \DateTime());
 
 
         $manager->persist($service);
