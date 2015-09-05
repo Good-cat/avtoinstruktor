@@ -8,7 +8,7 @@
         {% endif %}
         {% if(contacts.email) %}
             <p class="contact_title">Email:</p>
-            <p class="contact_content">{{ contacts.email|replace({'@': '<span class="doggy">[собачка]</span>'})|raw }}</p>
+            <p class="contact_content">{{ contacts.email|striptags|replace({'@': '<span class="doggy">[собачка]</span>'})|raw }}</p>
         {% endif %}
         {% if(contacts.skype) %}
             <p class="contact_title">Skype:</p>
